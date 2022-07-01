@@ -57,7 +57,7 @@ class EasySwooleEvent implements Event
         try {
             $res = RabbitMQChannel::invoke('rabbitmq-channel-pool', function (AMQPChannel $channel) use ($params) {
                 $exchange = 'exchange';
-                $messageBody = "这是内容";
+                $messageBody = "这是内容1";
                 $message = new AMQPMessage($messageBody, array('content_type' => 'text/plain', 'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT));
                 try {
                     $channel->basic_publish($message, $exchange);
